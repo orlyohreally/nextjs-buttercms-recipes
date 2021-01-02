@@ -117,13 +117,12 @@ export default function Recipe({ recipe }) {
                                 <div className="my-10 flex flex-row flex-wrap">
                                     {recipe.fields.categories.map(
                                         ({ name }) => (
-                                            <a
-                                                href="#"
+                                            <span
                                                 key={name}
                                                 className="bg-purple-100 text-purple-700 text-base font-semibold px-6 py-2 rounded-lg mr-2 mb-2"
                                             >
                                                 {name}
-                                            </a>
+                                            </span>
                                         )
                                     )}
                                 </div>
@@ -156,13 +155,10 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     const allRecipes = await getAllRecipesPaginated(100);
-    const paths = Object.entries(allRecipes).reduce(
-        (res, [pageIndex, posts]) => {
-            const pagePaths = posts.map((post) => `/recipes/${post.slug}`);
-            return [...res, ...pagePaths];
-        },
-        []
-    );
+    const paths = Object.entries(allRecipes).reduce((res, [_, posts]) => {
+        const pagePaths = posts.map((post) => `/recipes/${post.slug}`);
+        return [...res, ...pagePaths];
+    }, []);
 
     return {
         paths,
