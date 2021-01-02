@@ -5,7 +5,7 @@ import Layout from "@/components/layout";
 import Container from "@/components/container";
 import RecipePreviews from "@/components/recipe-previews";
 
-import { getAllRecipes } from "@/lib/api";
+import { getRecipesData } from "@/lib/api";
 
 export default function Index({ pages }) {
     return (
@@ -22,6 +22,6 @@ export default function Index({ pages }) {
 }
 
 export async function getStaticProps() {
-    const pages = await getAllRecipes();
+    const pages = (await getRecipesData()).recipes;
     return { props: { pages } };
 }
