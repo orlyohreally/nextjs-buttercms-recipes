@@ -9,7 +9,7 @@ import Ingredients from "@/components/ingredients";
 import Steps from "@/components/steps";
 import RecipePreviews from "@/components/recipe-previews";
 
-import { getAllRecipes, getRecipe } from "@/lib/api";
+import { getAllRecipesPaginated, getRecipe } from "@/lib/api";
 
 export default function Recipe({ recipe }) {
     const router = useRouter();
@@ -155,8 +155,14 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    const allRecipes = await getAllRecipes();
-    const paths = allRecipes.map(({ slug }) => `/recipes/${slug}`);
+    const allRecipes = await getAllRecipesPaginated(100);
+    const paths = Object.entries(allRecipes).reduce(
+        (res, [pageIndex, posts]) => {
+            const pagePaths = posts.map((post) => `/recipes/${post.slug}`);
+            return [...res, ...pagePaths];
+        },
+        []
+    );
 
     return {
         paths,
