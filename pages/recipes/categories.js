@@ -13,7 +13,7 @@ export default function Categories({ categories }) {
                 <Head>
                     <title>Recipes categories</title>
                 </Head>
-                <Header title="Posts categories"></Header>
+                <Header title="Recipes categories"></Header>
                 <ul>
                     {categories.map(({ name }, key) => {
                         return (
