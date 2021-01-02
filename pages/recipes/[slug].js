@@ -128,13 +128,15 @@ export default function Recipe({ recipe }) {
                                     )}
                                 </div>
                             </div>
-                            <div>
-                                <h3>Try these amazing recipes</h3>
-                                <RecipePreviews
-                                    recipes={recipe.fields.related_recipes}
-                                    previewType="small"
-                                ></RecipePreviews>
-                            </div>
+                            {recipe.fields.related_recipes.length > 0 && (
+                                <div>
+                                    <h3>Try these amazing recipes</h3>
+                                    <RecipePreviews
+                                        recipes={recipe.fields.related_recipes}
+                                        previewType="small"
+                                    ></RecipePreviews>
+                                </div>
+                            )}
                         </article>
                     </>
                 )}
