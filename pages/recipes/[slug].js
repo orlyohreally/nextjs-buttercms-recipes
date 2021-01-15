@@ -8,6 +8,7 @@ import Layout from "@/components/layout";
 import Ingredients from "@/components/ingredients";
 import Steps from "@/components/steps";
 import RecipePreviews from "@/components/recipe-previews";
+import Banner from "@/components/banner";
 
 import { getAllRecipesPaginated, getRecipe } from "@/lib/api";
 
@@ -23,6 +24,10 @@ export default function Recipe({ recipe }) {
                     <div>Loading…</div>
                 ) : (
                     <>
+                        {recipe.fields.banner && (
+                            <Banner banner={recipe.fields.banner}></Banner>
+                        )}
+
                         <article>
                             <Head>
                                 <title>
