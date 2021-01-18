@@ -15,13 +15,22 @@
     h4 {
         @apply text-3xl md:text-4xl lg:text-5xl font-bold text-left my-6;
     }
+    h5 {
+        @apply text-2xl lg:text-4xl font-bold text-left my-4;
+    }
 }
 
 @media (max-width: 425px) {
-    .banner {
+    .banner_centered {
         width: 100% !important;
         max-width: 100% !important;
         height: 100% !important;
         max-height: 100% !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .banner_bottom {
+        height: unset !important;
     }
 }

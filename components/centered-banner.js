@@ -8,11 +8,12 @@ export default function CenterBanner({
     height,
     maxHeight,
     backgroundColor,
+    buttonBackgroundColor,
     closeButtonClicked,
 }) {
     return (
         <div
-            className="banner flex justify-center content-center flex-col items-center fixed z-50 inset-1/2 transform -translate-x-2/4 -translate-y-2/4 shadow-lg max-h-full overflow-auto max-w-full"
+            className="banner_centered flex justify-center content-center flex-col items-center fixed z-50 inset-1/2 transform -translate-x-2/4 -translate-y-2/4 shadow-lg max-h-full overflow-auto max-w-full"
             style={{
                 backgroundColor: backgroundColor || "#fecaca",
                 height: height || "70%",
@@ -34,7 +35,7 @@ export default function CenterBanner({
             ></h2>
             <a
                 className="shadow-md py-3 px-5 mt-8 mb-4 rounded-lg"
-                style={{ backgroundColor: "#ffffff" }}
+                style={{ backgroundColor: buttonBackgroundColor || "#ffffff" }}
                 href={buttonLink}
             >
                 {buttonText}

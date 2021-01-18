@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import CenterBanner from "./centered-banner";
+import BottomBanner from "./bottom-banner";
 
 export default function Banner({
     banner: {
@@ -14,6 +15,7 @@ export default function Banner({
         max_height: maxHeight,
         type,
         background_color: backgroundColor,
+        button_background_color: buttonBackgroundColor,
     },
 }) {
     const [displayBanner, setDisplayBanner] = useState(true);
@@ -28,12 +30,32 @@ export default function Banner({
             height={height}
             maxHeight={maxHeight}
             backgroundColor={backgroundColor}
+            buttonBackgroundColor={buttonBackgroundColor}
             closeButtonClicked={() => setDisplayBanner(false)}
         ></CenterBanner>
     );
-    if (!displayBanner) return "";
-    if (type === "center") {
-        return centeredBanner;
+
+    const bottomBanner = (
+        <BottomBanner
+            headline={headline}
+            text={text}
+            buttonText={buttonText}
+            buttonLink={buttonLink}
+            height={height}
+            maxHeight={maxHeight}
+            backgroundColor={backgroundColor}
+            buttonBackgroundColor={buttonBackgroundColor}
+            closeButtonClicked={() => setDisplayBanner(false)}
+        ></BottomBanner>
+    );
+    if (!displayBanner) {
+        return null;
     }
-    return <></>;
+
+    switch (type) {
+        case "bottom":
+            return bottomBanner;
+        default:
+            return centeredBanner;
+    }
 }
