@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import CenterBanner from "./centered-banner";
 import BottomBanner from "./bottom-banner";
+import TopBanner from "./top-banner";
 
 export default function Banner({
     banner: {
@@ -48,6 +49,21 @@ export default function Banner({
             closeButtonClicked={() => setDisplayBanner(false)}
         ></BottomBanner>
     );
+
+    const topBanner = (
+        <TopBanner
+            headline={headline}
+            text={text}
+            buttonText={buttonText}
+            buttonLink={buttonLink}
+            height={height}
+            maxHeight={maxHeight}
+            backgroundColor={backgroundColor}
+            buttonBackgroundColor={buttonBackgroundColor}
+            closeButtonClicked={() => setDisplayBanner(false)}
+        ></TopBanner>
+    );
+
     if (!displayBanner) {
         return null;
     }
@@ -55,6 +71,8 @@ export default function Banner({
     switch (type) {
         case "bottom":
             return bottomBanner;
+        case "top":
+            return topBanner;
         default:
             return centeredBanner;
     }
