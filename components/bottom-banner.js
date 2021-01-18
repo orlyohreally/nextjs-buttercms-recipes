@@ -14,7 +14,7 @@ export default function BottomBanner({
             className="banner_bottom bottom-0 left-0 right-0 w-full z-50 fixed p-2"
             style={{
                 backgroundColor: backgroundColor || "#fecaca",
-                height: height || "70%",
+                height: height || "150px",
                 maxHeight: maxHeight || "350px",
             }}
         >
