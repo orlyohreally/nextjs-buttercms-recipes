@@ -34,6 +34,5 @@ export async function getStaticProps() {
             locale: "en",
         })
     ).recipe_category;
-    console.log(categories);
     return { props: { categories } };
 }

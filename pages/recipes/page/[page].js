@@ -109,8 +109,8 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     const allRecipes = await getAllRecipesPaginated();
-    const paths = Object.keys(allRecipes).map(
-        (pageIndex) => `/recipes/page/${parseInt(pageIndex, 10) + 1}`
+    const paths = allRecipes.map(
+        (_, pageIndex) => `/recipes/page/${parseInt(pageIndex, 10) + 1}`
     );
 
     return {
