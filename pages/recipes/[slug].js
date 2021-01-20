@@ -17,6 +17,11 @@ export default function Recipe({ recipe }) {
     if (!router.isFallback && !recipe?.slug) {
         return <ErrorPage statusCode={404} />;
     }
+
+    const hasBanner =
+        recipe?.fields?.banner &&
+        Object.keys(recipe?.fields?.banner).length > 0;
+
     return (
         <Layout>
             <Container>
@@ -24,7 +29,7 @@ export default function Recipe({ recipe }) {
                     <div>Loading…</div>
                 ) : (
                     <>
-                        {recipe.fields.banner && (
+                        {hasBanner && (
                             <Banner banner={recipe.fields.banner}></Banner>
                         )}
 
