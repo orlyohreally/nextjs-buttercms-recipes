@@ -29,10 +29,10 @@ export default function CenterBanner({
                 X
             </div>
             <h1 className="my-0 uppercase">{headline}</h1>
-            <h2
-                className="my-0 text-center uppercase"
+            <div
+                className="my-0 text-center uppercase prose"
                 dangerouslySetInnerHTML={{ __html: text }}
-            ></h2>
+            ></div>
             <a
                 className="shadow-md py-3 px-5 mt-8 mb-4 rounded-lg"
                 style={{ backgroundColor: buttonBackgroundColor || "#ffffff" }}

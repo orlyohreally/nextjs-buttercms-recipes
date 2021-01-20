@@ -28,10 +28,10 @@ export default function BottomBanner({
                 <div className="flex items-center h-full justify-center flex-col md:flex-row">
                     <div className="flex items-center sm:mr-5  flex-col sm:flex-row">
                         <h4 className="my-0 uppercase sm:mr-5">{headline}</h4>
-                        <h5
-                            className="my-0 text-center uppercase"
+                        <div
+                            className="my-0 text-center uppercase prose"
                             dangerouslySetInnerHTML={{ __html: text }}
-                        ></h5>
+                        ></div>
                     </div>
                     <a
                         className="block p-1 my-1"
